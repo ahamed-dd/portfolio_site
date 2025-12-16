@@ -1,6 +1,7 @@
 from .models import SiteModel
 from .serializers import Site_Serializer
 from rest_framework import viewsets
+from rest_framework.permissions import AllowAny, IsAdminUser
 from rest_framework.decorators import api_view
 from rest_framework import status
 from rest_framework.response import Response
@@ -9,6 +10,12 @@ from django.core.mail import send_mail
 class PortfolioViewSet(viewsets.ModelViewSet):
     queryset = SiteModel.objects.all()
     serializer_class = Site_Serializer
+
+    def get_permissions(self):
+        if self.action in ['list', 'retrieve']:
+            return [AllowAny()]
+        return [IsAdminUser()]
+        
 
 @api_view(['POST'])
 def contact(request):
@@ -29,4 +36,4 @@ def contact(request):
         except Exception as e:
             return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     else:
-        return Response({'error': 'Please the fields correctly'}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({'error': 'Please fill the fields correctly'}, status=status.HTTP_400_BAD_REQUEST)
