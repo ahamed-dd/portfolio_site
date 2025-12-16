@@ -1,21 +1,22 @@
-from .models import SiteModel
-from .serializers import Site_Serializer
-from rest_framework import viewsets
+from .models import site_profile
+from .serializers import SiteSerializer
 from rest_framework.permissions import AllowAny, IsAdminUser
 from rest_framework.decorators import api_view
 from rest_framework import status
 from rest_framework.response import Response
 from django.core.mail import send_mail
 # Create your views here.
-class PortfolioViewSet(viewsets.ModelViewSet):
-    queryset = SiteModel.objects.all()
-    serializer_class = Site_Serializer
 
-    def get_permissions(self):
-        if self.action in ['list', 'retrieve']:
-            return [AllowAny()]
-        return [IsAdminUser()]
-        
+@api_view(['GET'])
+def PortfolioViewSet(request):
+    site = site_profile.SiteProfile.objects.prefetch_related(
+            "projects",
+            "education",
+            "experience"
+        ).first()
+    serializer = SiteSerializer(site)
+    return Response(serializer.data)
+
 
 @api_view(['POST'])
 def contact(request):

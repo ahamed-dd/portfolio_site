@@ -1,8 +1,20 @@
 from django.contrib import admin
+from .models import education,experience, projects, site_profile
 
-# import the model 
-from .models import SiteModel
+class ProjectInline(admin.TabularInline):
+    model = projects.Projects
+    extra = 1
+    ordering = ("order",)
 
+class ExperienceInline(admin.TabularInline):
+    model = experience.Experience
+    extra = 1
+
+class EducationInline(admin.TabularInline):
+    model = education.Education
+    extra = 1
+
+@admin.register(site_profile.SiteProfile)
 class UserAdmin(admin.ModelAdmin):
     list_display = (
         "name",
@@ -11,15 +23,7 @@ class UserAdmin(admin.ModelAdmin):
         "github",
         "medium",
         "bio",
-        "about",
-        "experience",
-        "bio",
-        "skills",
-        "programming",
-        "communication",
-        "tools",
-        "projects",
-        "education"
+        "about"
     )
+    inlines = [ProjectInline, EducationInline, ExperienceInline]
 
-admin.site.register(SiteModel,UserAdmin)

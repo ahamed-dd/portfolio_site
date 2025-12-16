@@ -2,7 +2,7 @@ from django.db import models
 from .site_profile import SiteProfile
 
 
-class Experience(models.Model):
+class Education(models.Model):
     site = models.ForeignKey(
         SiteProfile,
         on_delete=models.CASCADE,
