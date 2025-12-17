@@ -12,7 +12,8 @@ def PortfolioViewSet(request):
     site = site_profile.SiteProfile.objects.prefetch_related(
             "projects",
             "education",
-            "experience"
+            "experience",
+            "skills"
         ).first()
     serializer = SiteSerializer(site)
     return Response(serializer.data)

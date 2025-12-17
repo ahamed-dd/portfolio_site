@@ -1,10 +1,14 @@
 from django.contrib import admin
-from .models import education,experience, projects, site_profile
+from .models import education,experience, projects, site_profile, skills
 
 class ProjectInline(admin.TabularInline):
     model = projects.Projects
     extra = 1
     ordering = ("order",)
+
+class SkillsInline(admin.TabularInline):
+    model = skills.Skills
+    extra = 1
 
 class ExperienceInline(admin.TabularInline):
     model = experience.Experience
@@ -25,5 +29,5 @@ class UserAdmin(admin.ModelAdmin):
         "bio",
         "about"
     )
-    inlines = [ProjectInline, EducationInline, ExperienceInline]
+    inlines = [ProjectInline, EducationInline, ExperienceInline, SkillsInline]
 

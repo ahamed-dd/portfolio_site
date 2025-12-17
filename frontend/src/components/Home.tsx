@@ -3,6 +3,35 @@ import axios from "axios"
 import Typewriter from 'typewriter-effect'
 import { Link } from "react-router-dom"
 import Skills from "./Skills"
+import Projects from "./Projects"
+
+ 
+export type Project = {
+  id: number
+  title: string
+  description?: string
+  github_url?: string 
+  live_url?: string 
+  tech_stack?: string
+  order?: number
+}
+type Education = {
+  institute_name: string
+  degree?: string
+  field?: string
+  year_started?:number
+  year_ended?: number
+  grade?: number
+  located?: string
+}
+type Experience = {
+  company_name: string
+  role: string
+  description?: string
+  year_worked?: number
+  located?: string
+}
+
 type UserData = {
     name: string
     linkedin?: string
@@ -10,13 +39,9 @@ type UserData = {
     medium?: string
     bio?: string
     about?: string
-    experience?: string
-    skills?: string
-    programming?: string
-    communication?: string
-    tools?: string
-    projects?: object
-    education?: string 
+    projects?: Project[]
+    education?: Education[]
+    experience?: Experience[]
 }
 
 const BASE_URL = import.meta.env.VITE_BASE_URL
@@ -29,7 +54,7 @@ function Home() {
 
   async function getUserData(): Promise<UserData | null> {
     const response = await axios.get(`${BASE_URL}/me/`, )
-    return response.data[0]
+    return response.data
   }
 
   const [userData, setuserData] = useState<UserData | null>(null)
@@ -81,6 +106,11 @@ function Home() {
 
     <section>
      <Skills/>
+    </section>
+    <section>
+      {userData?.projects && (
+        <Projects projecttype={userData.projects} />
+      )}
     </section>
     </>
   )
