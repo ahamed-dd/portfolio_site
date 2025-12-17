@@ -15,6 +15,14 @@ export type Project = {
   tech_stack?: string
   order?: number
 }
+type SkillCategory = "Programming" | "Data Engineering and Visualization" | "AI, ML and NLP" | "SDLC, Cloud and Devops"
+
+export type Skill = {
+  id: number
+  name: string
+  image_url: string
+  category: SkillCategory
+}
 type Education = {
   institute_name: string
   degree?: string
@@ -42,6 +50,7 @@ type UserData = {
     projects?: Project[]
     education?: Education[]
     experience?: Experience[]
+    skills?: Skill[]
 }
 
 const BASE_URL = import.meta.env.VITE_BASE_URL
@@ -105,7 +114,10 @@ function Home() {
     </div>
 
     <section>
-     <Skills/>
+     {userData?.skills && (
+      <Skills skills={userData.skills}/>
+     )
+     }
     </section>
     <section>
       {userData?.projects && (

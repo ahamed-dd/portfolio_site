@@ -1,6 +1,6 @@
 import { Carousel } from "react-bootstrap"
 import { type Project } from "./Home"
-import projectImage from "../media/projects-default.jpg";
+
 
 
 
@@ -12,6 +12,7 @@ projecttype: Project[]
 function Projects({projecttype}: props) {
   return (
     <>
+    <h2>Projects</h2>
     <div>
     <Carousel>
     {projecttype.map(project => (
@@ -20,7 +21,7 @@ function Projects({projecttype}: props) {
       <Carousel.Item>
         <img
           className="proj-img"
-          src={projectImage}
+          
           alt="project image for Ahamed portfolio website."
           />
         <Carousel.Caption>

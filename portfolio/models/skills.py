@@ -12,8 +12,7 @@ class Skills(models.Model):
         ('Programming', "programming"),
         ('AI, ML and NLP', 'Ai, Ml and Nlp'),
         ('Data Engineering and Visualization', 'data engineering and visualization'),
-        ('Cloud and Optimization', 'cloud and optimization'),
-        ('SDLC and Devops', 'sdlc and devops')
+        ('SDLC, Cloud and Devops', 'sdlc cloud and devops')
         ]
     
     name = models.CharField(max_length=100)
