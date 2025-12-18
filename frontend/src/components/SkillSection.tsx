@@ -1,9 +1,9 @@
-import { type Skill } from "./Home"
+import { type SkillType } from "./Skills"
 
 
 type SkillSectionProps = {
     title: string
-    skills: Skill[]
+    skills: SkillType[]
 }
 
 function SkillSection({ title, skills }: SkillSectionProps) {

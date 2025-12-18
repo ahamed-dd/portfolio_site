@@ -3,27 +3,13 @@ import axios from "axios"
 import Typewriter from 'typewriter-effect'
 import { Link } from "react-router-dom"
 import Skills from "./Skills"
+import type { SkillType } from "./Skills"
 import Projects from "./Projects"
+import type { ProjectType } from "./Projects"
+import Experience from "./Experience"
+import type { ExperienceType } from "./Experience"
 
- 
-export type Project = {
-  id: number
-  title: string
-  description?: string
-  github_url?: string 
-  live_url?: string 
-  tech_stack?: string
-  order?: number
-}
-type SkillCategory = "Programming" | "Data Engineering and Visualization" | "AI, ML and NLP" | "SDLC, Cloud and Devops"
-
-export type Skill = {
-  id: number
-  name: string
-  image_url: string
-  category: SkillCategory
-}
-type Education = {
+export type EducationType = {
   institute_name: string
   degree?: string
   field?: string
@@ -32,13 +18,7 @@ type Education = {
   grade?: number
   located?: string
 }
-type Experience = {
-  company_name: string
-  role: string
-  description?: string
-  year_worked?: number
-  located?: string
-}
+
 
 type UserData = {
     name: string
@@ -47,10 +27,10 @@ type UserData = {
     medium?: string
     bio?: string
     about?: string
-    projects?: Project[]
-    education?: Education[]
-    experience?: Experience[]
-    skills?: Skill[]
+    projects?: ProjectType[]
+    education?: EducationType[]
+    experience?: ExperienceType[]
+    skills?: SkillType[]
 }
 
 const BASE_URL = import.meta.env.VITE_BASE_URL
@@ -123,6 +103,17 @@ function Home() {
       {userData?.projects && (
         <Projects projecttype={userData.projects} />
       )}
+    </section>
+    <section>
+      {
+        userData?.experience && (
+          <div>
+            <h1>Experience</h1>
+
+          <Experience exp={userData.experience}></Experience>
+          </div>
+        )
+      }
     </section>
     </>
   )

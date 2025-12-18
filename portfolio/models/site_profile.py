@@ -11,3 +11,4 @@ class SiteProfile(models.Model):
     #Bio
     bio = models.TextField(blank=True, null=True)
     about = models.TextField(blank=True, null=True)
+    extra_info = models.TextField(blank=True, null=True)

@@ -1,11 +1,20 @@
 import { Carousel } from "react-bootstrap"
-import { type Project } from "./Home"
+
+export type ProjectType = {
+  id: number
+  title: string
+  description?: string
+  github_url?: string 
+  live_url?: string 
+  tech_stack?: string
+  order?: number
+}
 
 
 
 
 type props = {
-projecttype: Project[]
+projecttype: ProjectType[]
 }
 
 

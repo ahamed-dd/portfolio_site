@@ -1,8 +1,16 @@
-import { type Skill } from "./Home"
 import SkillSection from "./SkillSection"
 
+export type SkillCategory = "Programming" | "Data Engineering and Visualization" | "AI, ML and NLP" | "SDLC, Cloud and Devops"
+
+export type SkillType = {
+  id: number
+  name: string
+  image_url: string
+  category: SkillCategory
+}
+
 type SkillsProps = {
-  skills: Skill[]
+  skills: SkillType[]
 }
 
 function Skills({ skills }: SkillsProps) {
