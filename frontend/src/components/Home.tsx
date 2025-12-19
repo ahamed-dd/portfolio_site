@@ -8,6 +8,7 @@ import Projects from "./Projects"
 import type { ProjectType } from "./Projects"
 import Experience from "./Experience"
 import type { ExperienceType } from "./Experience"
+import Contact from "./Contact"
 
 export type EducationType = {
   institute_name: string
@@ -31,6 +32,7 @@ type UserData = {
     education?: EducationType[]
     experience?: ExperienceType[]
     skills?: SkillType[]
+    extra_info?: string
 }
 
 const BASE_URL = import.meta.env.VITE_BASE_URL
@@ -109,11 +111,17 @@ function Home() {
         userData?.experience && (
           <div>
             <h1>Experience</h1>
+            <p> 
+              {userData.extra_info}
+            </p>
 
           <Experience exp={userData.experience}></Experience>
           </div>
         )
       }
+    </section>
+    <section>
+      <Contact/>
     </section>
     </>
   )
