@@ -1,4 +1,5 @@
 import SkillSection from "./SkillSection"
+import './styles/skills.css'
 
 export type SkillCategory = "Programming" | "Data Engineering and Visualization" | "AI, ML and NLP" | "SDLC, Cloud and Devops"
 
@@ -22,12 +23,11 @@ function Skills({ skills }: SkillsProps) {
   }
 
   return (
-    <section>
-      <h2>Skills</h2>
-
+    <section className="skills-section">
+      <h2 className="section-title">Skills & Technologies</h2>
       <SkillSection title="Programming Skills" skills={groupedSkills.programming} />
-      <SkillSection title="Data Science" skills={groupedSkills.data} />
-      <SkillSection title="SDLC, Cloud and Devops" skills={groupedSkills.sdlc} />
+      <SkillSection title="Data Engineering & Visualization" skills={groupedSkills.data} />
+      <SkillSection title="SDLC, Cloud and DevOps" skills={groupedSkills.sdlc} />
       <SkillSection title="AI, ML and NLP" skills={groupedSkills.ai} />
     </section>
   )
