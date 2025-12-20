@@ -1,3 +1,5 @@
+import './styles/experience.css'
+
 export type ExperienceType = {
   company_name: string
   role: string
@@ -7,23 +9,35 @@ export type ExperienceType = {
 }
 
 type ExpProps = {
-     exp: ExperienceType[]
+  exp: ExperienceType[]
 }
 
-function Experience({exp}: ExpProps) {
+function Experience({ exp }: ExpProps) {
   return (
-    <div>
-        {
-            exp.map(expp => (
-                <li>
-                    <h3>{expp.company_name}</h3>
-                    <h4>{expp.role}</h4>
-                    <h4>{expp.description}</h4>
-                    <p>-----------------------</p>
-                </li>
-            ))
-        }
-    </div>
+    <section className="experience-section">
+      <h2 className="section-title">Professional Experience</h2>
+      <div className="experience-list">
+        {exp.map((expp, index) => (
+          <div key={index} className="experience-item">
+            <div className="experience-header">
+              <h3 className="experience-company">{expp.company_name}</h3>
+              <div className="experience-meta">
+                {expp.year_worked && (
+                  <span className="experience-year">{expp.year_worked}</span>
+                )}
+                {expp.located && (
+                  <span className="experience-location">📍 {expp.located}</span>
+                )}
+              </div>
+            </div>
+            <h4 className="experience-role">{expp.role}</h4>
+            {expp.description && (
+              <p className="experience-description">{expp.description}</p>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
   )
 }
 
