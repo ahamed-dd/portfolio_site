@@ -1,11 +1,11 @@
 .contact-section {
-  padding: 4rem 0;
+  padding: 2.5rem 0;
 }
 
 .contact-subtitle {
   text-align: center;
   color: #666;
-  font-size: 1.05rem;
+  font-size: 1rem;
   margin-bottom: 3rem;
   max-width: 600px;
   margin-left: auto;
@@ -13,13 +13,13 @@
 }
 
 .contact-container {
-  max-width: 600px;
+  max-width: 500px;
   margin: 0 auto;
 }
 
 .contact-form {
   background: white;
-  padding: 2.5rem;
+  padding: 2rem;
   border-radius: 20px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
@@ -30,10 +30,10 @@
 
 .form-input {
   width: 100%;
-  padding: 1rem 1.25rem;
+  padding: 0.875rem 1rem;
   border: 2px solid #e0e0e0;
   border-radius: 12px;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-family: inherit;
   transition: all 0.3s ease;
   background: white;
@@ -56,12 +56,12 @@
 
 .submit-btn {
   width: 100%;
-  padding: 1rem 2rem;
+  padding: 0.875rem 1.5rem;
   background: #00d9c0;
   color: white;
   border: none;
   border-radius: 12px;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -81,10 +81,10 @@
 
 @media (max-width: 768px) {
   .contact-form {
-    padding: 2rem;
+    padding: 1.75rem;
   }
 
   .form-input {
-    padding: 0.875rem 1rem;
+    padding: 0.8rem 0.95rem;
   }
 }

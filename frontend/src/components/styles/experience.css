@@ -1,5 +1,5 @@
 .experience-section {
-  padding: 4rem 0;
+  padding: 2.5rem 0;
   background: transparent;
 }
 
@@ -14,7 +14,7 @@
 
 .experience-item {
   background: white;
-  padding: 2.5rem;
+  padding: 2rem;
   border-radius: 20px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border-left: 5px solid #00d9c0;
@@ -36,7 +36,7 @@
 }
 
 .experience-company {
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   font-weight: 700;
   color: #1a1a1a;
   margin: 0;
@@ -60,7 +60,7 @@
 }
 
 .experience-role {
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 600;
   color: #00d9c0;
   margin: 0 0 1rem 0;
@@ -70,12 +70,12 @@
   color: #666;
   line-height: 1.7;
   margin: 0;
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
 
 @media (max-width: 768px) {
   .experience-item {
-    padding: 2rem;
+    padding: 1.75rem;
   }
 
   .experience-header {
@@ -84,11 +84,11 @@
   }
 
   .experience-company {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 
   .experience-role {
-    font-size: 1.05rem;
+    font-size: 1rem;
   }
 
   .experience-meta {

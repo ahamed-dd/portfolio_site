@@ -141,11 +141,16 @@ function Home() {
         <section className="hero-section" id="home">
           <div className="hero-content">
             <div className="hero-left">
+              <div className="hero-left-header">
               {userData?.profile_image && (
                 <div className="profile-image">
                   <img src={userData.profile_image} alt="Profile" />
                 </div>
               )}
+              <div className="logo-container">
+              A  {/* Or use your logo/initials */}
+              </div>
+            </div>
               <h1 className="hero-title">
                 <Typewriter
                   options={{
