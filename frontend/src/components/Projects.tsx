@@ -1,4 +1,4 @@
-import { Carousel } from "react-bootstrap"
+import './styles/projects.css'
 
 export type ProjectType = {
   id: number
@@ -10,68 +10,55 @@ export type ProjectType = {
   order?: number
 }
 
-
-
-
 type props = {
-projecttype: ProjectType[]
+  projecttype: ProjectType[]
 }
 
-
-function Projects({projecttype}: props) {
+function Projects({ projecttype }: props) {
   return (
-    <>
-    <h2>Projects</h2>
-    <div>
-    <Carousel>
-    {projecttype.map(project => (
-      
-     
-      <Carousel.Item>
-        <img
-          className="proj-img"
-          
-          alt="project image for Ahamed portfolio website."
-          />
-        <Carousel.Caption>
-          <h3>{project.title}</h3>
-          <p>{project.description}</p>
-          <p>{project.tech_stack}</p>
-         
-          <a 
-            href={project.live_url} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="btn btn-primary"
-          >
-            Live Demo
-          </a>
-          <a 
-            href={project.github_url} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="btn btn-primary"
-          >
-           Source Code
-          </a>
-        </Carousel.Caption>
-      </Carousel.Item>
-    
-     
-    ))}
-    </Carousel>
-    </div>
-    <style>{`
-        proj-img{
-        width: 50%;
-        height: 100px;
-        object-fit: none;
-        }
-        `}
-    </style>
-    </>
+    <section className="projects-section">
+      <h2 className="section-title">Featured Projects</h2>
+      <div className="projects-grid">
+        {projecttype.map(project => (
+          <div key={project.id} className="project-card">
+            <div className="project-icon">
+              {/* You can add different icons based on tech_stack */}
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" fill="#FFB800" stroke="#FFB800" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+            <h3 className="project-title">{project.title}</h3>
+            <p className="project-description">{project.description}</p>
+            {project.tech_stack && (
+              <p className="project-tech">{project.tech_stack}</p>
+            )}
+            <div className="project-links">
+              {project.live_url && (
+                <a 
+                  href={project.live_url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="project-btn project-btn-primary"
+                >
+                  Live Demo
+                </a>
+              )}
+              {project.github_url && (
+                <a 
+                  href={project.github_url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="project-btn project-btn-secondary"
+                >
+                  Source Code
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
   )
 }
 
 export default Projects
-
