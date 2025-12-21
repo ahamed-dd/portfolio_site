@@ -11,6 +11,8 @@ import type { ProjectType } from "./Projects"
 import Experience from "./Experience"
 import type { ExperienceType } from "./Experience"
 import Contact from "./Contact"
+import { SocialMedia } from "./SocialIcons"
+import { type SocialMediaType } from "./SocialIcons"
 import 'react-toastify/dist/ReactToastify.css'
 import './styles/home.css'
 
@@ -22,13 +24,6 @@ export type EducationType = {
   year_ended?: number
   grade?: number
   located?: string
-}
-
-export type SocialMediaType = {
-  id: number
-  name: string
-  url: string
-  icon_url: string
 }
 
 type UserData = {
@@ -44,30 +39,9 @@ type UserData = {
     experience?: ExperienceType[]
     skills?: SkillType[]
     extra_info?: string
+    socials?: SocialMediaType[]
 }
-
 const BASE_URL = import.meta.env.VITE_BASE_URL
-
-// ===== SOCIAL MEDIA COMPONENT =====
-function SocialMedia({ socials }: { socials: SocialMediaType[] }) {
-  return (
-    <div className="social-icons">
-      {socials.map(social => (
-        <a 
-          key={social.id}
-          href={social.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="social-icon-link"
-          title={social.name}
-        >
-          <img src={social.icon_url} alt={social.name} />
-        </a>
-      ))}
-    </div>
-  )
-}
-
 // ===== RESUME MODAL COMPONENT =====
 function ResumeModal({ show, onHide }: { show: boolean; onHide: () => void }) {
   return (
@@ -90,7 +64,6 @@ function ResumeModal({ show, onHide }: { show: boolean; onHide: () => void }) {
 
 function Home() {
   const [userData, setUserData] = useState<UserData | null>(null)
-  const [socials, setSocials] = useState<SocialMediaType[]>([])
   const [loading, setLoading] = useState(true)
   const [showResume, setShowResume] = useState(false)
 
@@ -104,22 +77,11 @@ function Home() {
     }
   }
 
-  async function getSocials(): Promise<SocialMediaType[]> {
-    try {
-      const response = await axios.get(`${BASE_URL}/socials/`)
-      return response.data
-    } catch (error) {
-      console.error("Failed to load social media links")
-      return []
-    }
-  }
-
   useEffect(() => {
     const loadData = async () => {
       setLoading(true)
-      const [user, socialData] = await Promise.all([getUserData(), getSocials()])
+      const [user] = await Promise.all([getUserData()])
       setUserData(user)
-      setSocials(socialData)
       setLoading(false)
     }
     loadData()
@@ -148,23 +110,27 @@ function Home() {
                 </div>
               )}
               <div className="logo-container">
-              A  {/* Or use your logo/initials */}
+                <img src="/public/portfolio.svg"/>
               </div>
             </div>
+              
               <h1 className="hero-title">
+                <h1 className="hero-title">Hello, I'm </h1>
                 <Typewriter
                   options={{
-                    strings: userData?.bio || "Full-stack developer",
+                    strings: userData?.name || "Full-stack developer",
                     autoStart: true,
                     loop: false,
                     delay: 50,
                   }}
                 />
               </h1>
-              {userData?.about && (
-                <p className="hero-description">{userData.about}</p>
+              {userData?.bio && (
+                <p className="hero-description">{userData.bio}</p>
               )}
-              {socials.length > 0 && <SocialMedia socials={socials} />}
+              {userData?.socials && userData.socials.length > 0 &&(
+                <SocialMedia socials={userData.socials}/>
+              )}
             </div>
             <div className="hero-right">
               <div className="hero-image">
@@ -172,23 +138,40 @@ function Home() {
                 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                   <defs>
                     <pattern id="grid" width="4" height="4" patternUnits="userSpaceOnUse">
-                      <rect width="4" height="4" fill="none" stroke="#333" strokeWidth="0.5"/>
+                      <rect width="4" height="4" fill="none" stroke="#333" stroke-width="0.5"/>
                     </pattern>
                   </defs>
                   <rect width="200" height="200" fill="url(#grid)"/>
-                  <circle cx="100" cy="60" r="25" fill="#333"/>
-                  <ellipse cx="100" cy="110" rx="35" ry="50" fill="#333"/>
-                  <path d="M 70 90 Q 60 110 70 130" stroke="#333" strokeWidth="8" fill="none" strokeLinecap="round"/>
-                  <path d="M 130 90 Q 140 110 130 130" stroke="#333" strokeWidth="8" fill="none" strokeLinecap="round"/>
-                  <circle cx="85" cy="55" r="3" fill="#fff"/>
-                  <circle cx="115" cy="55" r="3" fill="#fff"/>
+                  <path d="M 60 160 L 95 40"
+                        stroke="#333"
+                        stroke-width="14"
+                        stroke-linecap="round"/>
+                  <path d="M 140 160 L 105 40"
+                        stroke="#333"
+                        stroke-width="14"
+                        stroke-linecap="round"/>
+                  <circle cx="85" cy="105" r="6" fill="#333"/>
+                  <path d="M 85 111 L 95 120"
+                        stroke="#333"
+                        stroke-width="8"
+                        stroke-linecap="round"/>
+                  <circle cx="115" cy="105" r="6" fill="#333"/>
+                  <path d="M 115 111 L 105 120"
+                        stroke="#333"
+                        stroke-width="8"
+                        stroke-linecap="round"/>
+                  <path d="M 95 120 L 105 120"
+                        stroke="#333"
+                        stroke-width="10"
+                        stroke-linecap="round"/>
+                  <circle cx="100" cy="55" r="3" fill="#fff"/>
                 </svg>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ===== ABOUT ME SECTION ===== */}
+        {/* ===== ABOUT ME SECTION ===== 
         <section className="about-section" id="about">
           <h2 className="section-title">About Me</h2>
           <div className="about-content">
@@ -196,18 +179,19 @@ function Home() {
               <p className="about-text">{userData.extra_info}</p>
             )}
           </div>
-        </section>
-
-        {/* ===== SKILLS SECTION ===== */}
-        {userData?.skills && userData.skills.length > 0 && (
-          <Skills skills={userData.skills} />
-        )}
+        </section> -- About Section is commented As I think it is not useful as
+        bio and about are mostly similar. */}
 
         {/* ===== PROJECTS SECTION ===== */}
         {userData?.projects && userData.projects.length > 0 && (
           <section id="projects">
             <Projects projecttype={userData.projects} />
           </section>
+        )}
+
+        {/* ===== SKILLS SECTION ===== */}
+        {userData?.skills && userData.skills.length > 0 && (
+          <Skills skills={userData.skills} />
         )}
 
         {/* ===== EXPERIENCE SECTION ===== */}

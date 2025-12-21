@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import education,experience, projects, site_profile, skills
+from .models import education,experience, projects, site_profile, skills, socials
 
 class ProjectInline(admin.TabularInline):
     model = projects.Projects
@@ -17,7 +17,9 @@ class ExperienceInline(admin.TabularInline):
 class EducationInline(admin.TabularInline):
     model = education.Education
     extra = 1
-
+class SocialsInline(admin.TabularInline):
+    model = socials.Socials
+    extra = 1
 @admin.register(site_profile.SiteProfile)
 class UserAdmin(admin.ModelAdmin):
     list_display = (
@@ -29,5 +31,5 @@ class UserAdmin(admin.ModelAdmin):
         "bio",
         "about"
     )
-    inlines = [ProjectInline, EducationInline, ExperienceInline, SkillsInline]
+    inlines = [ProjectInline, EducationInline, ExperienceInline, SkillsInline, SocialsInline]
 

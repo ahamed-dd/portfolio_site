@@ -167,14 +167,14 @@ body {
 
 /* About Section */
 .about-section {
-  padding: 2.5rem 0;
+  padding: 1.5rem 0;
 }
 
 .skills-section,
 .projects-section,
 .experience-section,
 .contact-section {
-  padding: 2.5rem 0;  /* Changed from 4rem 0 */
+  padding: 1.5rem 0;  /* Changed from 4rem 0 */
 }
 
 .about-content {
@@ -225,8 +225,8 @@ body {
 
 @media (max-width: 768px) {
   .portfolio-container {
-    padding: 1rem;
-    padding-top: 100px;
+    padding: 0.2rem;
+    padding-top: 30px;
   }
 
   .hero-title {

@@ -1,0 +1,35 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- A legs -->
+  <path d="M 60 160 L 95 40"
+        stroke="#00D9C0"
+        stroke-width="14"
+        stroke-linecap="round"/>
+
+  <path d="M 140 160 L 105 40"
+        stroke="#00D9C0"
+        stroke-width="14"
+        stroke-linecap="round"/>
+
+  <!-- Crossbar as abstract handshake -->
+  <g>
+    <!-- heads (dots only) -->
+    <circle cx="85" cy="105" r="4" fill="#00D9C0"/>
+    <circle cx="115" cy="105" r="4" fill="#00D9C0"/>
+
+    <!-- arms -->
+    <path d="M 85 110 L 95 120"
+          stroke="#00D9C0"
+          stroke-width="8"
+          stroke-linecap="round"/>
+    <path d="M 115 110 L 105 120"
+          stroke="#00D9C0"
+          stroke-width="8"
+          stroke-linecap="round"/>
+
+    <!-- handshake -->
+    <path d="M 95 120 L 105 120"
+          stroke="#00D9C0"
+          stroke-width="10"
+          stroke-linecap="round"/>
+  </g>
+</svg>

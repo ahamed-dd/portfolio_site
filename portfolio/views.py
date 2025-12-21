@@ -13,7 +13,8 @@ def PortfolioViewSet(request):
             "projects",
             "education",
             "experience",
-            "skills"
+            "skills",
+            "socials"
         ).first()
     serializer = SiteSerializer(site)
     return Response(serializer.data)
