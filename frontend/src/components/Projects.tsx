@@ -21,12 +21,12 @@ function Projects({ projecttype }: props) {
       <div className="projects-grid">
         {projecttype.map(project => (
           <div key={project.id} className="project-card">
-            <div className="project-icon">
-              {/* You can add different icons based on tech_stack */}
+            {/*<div className="project-icon">
+               You can add different icons based on tech_stack 
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" fill="#FFB800" stroke="#FFB800" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-            </div>
+            </div>*/}
             <h3 className="project-title">{project.title}</h3>
             <p className="project-description">{project.description}</p>
             {project.tech_stack && (

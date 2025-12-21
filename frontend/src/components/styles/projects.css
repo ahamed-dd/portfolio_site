@@ -1,12 +1,12 @@
 .projects-section {
-  padding: 1.5rem 0;
+  padding: .5rem 0;
 }
 
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 
 .project-card {
@@ -59,12 +59,15 @@
 }
 
 .project-tech {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 700;
   color: #00d9c0;
-  font-weight: 600;
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid #f0f0f0;
+  margin-top: 0.75rem;
+  padding: 0.4rem 0.75rem;
+  border-top: none;
+  background: rgba(0, 217, 192, 0.08);
+  border-radius: 16px;
+  width: fit-content;
 }
 
 .project-links {
@@ -115,7 +118,7 @@
   }
 
   .project-card {
-    padding: 1.75rem;
+    padding: 1rem;
   }
 
   .project-icon {
