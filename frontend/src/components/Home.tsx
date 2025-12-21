@@ -109,13 +109,10 @@ function Home() {
                   <img src={userData.profile_image} alt="Profile" />
                 </div>
               )}
-              <div className="logo-container">
-                <img src="/public/portfolio.svg"/>
-              </div>
+
             </div>
-              
+              <h1 className="hero-title">Hello, I'm </h1>
               <h1 className="hero-title">
-                <h1 className="hero-title">Hello, I'm </h1>
                 <Typewriter
                   options={{
                     strings: userData?.name || "Full-stack developer",
