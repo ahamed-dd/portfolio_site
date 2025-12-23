@@ -12,4 +12,4 @@ class SiteProfile(models.Model):
     bio = models.TextField(blank=True, null=True)
     about = models.TextField(blank=True, null=True)
     extra_info = models.TextField(blank=True, null=True)
-    resume_url = models.URLField(null=True, blank=True)
+    resume_url = models.CharField(null=True, blank=True)

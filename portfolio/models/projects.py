@@ -14,4 +14,4 @@ class Projects(models.Model):
     live_url = models.URLField(blank=True)
     tech_stack = models.TextField(blank=True)
     order = models.PositiveIntegerField(default=0)
-    proj_image_url = models.URLField(null=True, blank=True)
+    proj_image_url = models.CharField(null=True, blank=True)

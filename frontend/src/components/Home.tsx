@@ -15,6 +15,7 @@ import { SocialMedia } from "./SocialIcons"
 import { type SocialMediaType } from "./SocialIcons"
 import 'react-toastify/dist/ReactToastify.css'
 import './styles/home.css'
+import ReactMardown from 'react-markdown'
 
 export type EducationType = {
   institute_name: string
@@ -77,6 +78,13 @@ function Home() {
     }
   }
 
+  const scrollToSection = (sectionId: string) => {
+  const section = document.getElementById(sectionId)
+  if (section) {
+    section.scrollIntoView({ behavior: "smooth" })
+  }
+  }
+
   useEffect(() => {
     const loadData = async () => {
       setLoading(true)
@@ -111,56 +119,89 @@ function Home() {
               )}
 
             </div>
-              <h1 className="hero-title">Hello, I'm </h1>
-              <h1 className="hero-title">
-                <Typewriter
-                  options={{
-                    strings: userData?.name || "Full-stack developer",
-                    autoStart: true,
-                    loop: false,
-                    delay: 50,
-                  }}
-                />
-              </h1>
+                <h1 className="hero-title">
+                  Hello, I'm{" "}
+                  <span className="hero-name">
+                    <Typewriter
+                      options={{
+                        strings: userData?.name || "Ahamed",
+                        autoStart: true,
+                        delay: 40,
+                        cursor: " "
+                      }}
+                    />
+                  </span>
+                </h1>
+
+                <h2 className="hero-titletwo">
+                  <Typewriter
+                    options={{
+                      strings: userData?.extra_info || "Full-stack developer",
+                      autoStart: true,
+                      delay: 50,
+                    }}
+                  />
+                </h2>
+
               {userData?.bio && (
-                <p className="hero-description">{userData.bio}</p>
+                <div className="hero-description">
+                <ReactMardown >
+                  {userData.bio}
+                </ReactMardown>
+                </div>
               )}
+              <div className="hero-buttons">
+                        <button 
+                          className="hero-btn hero-btn-primary"
+                          onClick={() => setShowResume(true)}
+                        >
+                          Resume
+                        </button>
+                        <button
+                          className="hero-btn hero-btn-secondary"
+                          onClick={() => scrollToSection("contact")}
+                        >
+                          Contact Me
+                        </button>
+              </div>
               {userData?.socials && userData.socials.length > 0 &&(
                 <SocialMedia socials={userData.socials}/>
               )}
-            </div>
+              
+              
+          </div>
             <div className="hero-right">
               <div className="hero-image">
                 {/* Placeholder illustration - you can replace with an actual image */}
                 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                   <defs>
                     <pattern id="grid" width="4" height="4" patternUnits="userSpaceOnUse">
-                      <rect width="4" height="4" fill="none" stroke="#333" stroke-width="0.5"/>
+                      <rect width="4" height="4" fill="none" stroke="#333" strokeWidth="0.5"/>
                     </pattern>
                   </defs>
                   <rect width="200" height="200" fill="url(#grid)"/>
                   <path d="M 60 160 L 95 40"
                         stroke="#333"
-                        stroke-width="14"
-                        stroke-linecap="round"/>
+                        strokeWidth="14"
+                        strokeLinecap="round"/>
                   <path d="M 140 160 L 105 40"
                         stroke="#333"
-                        stroke-width="14"
-                        stroke-linecap="round"/>
+                        strokeWidth="14"
+                        strokeLinecap="round"/>
                   <circle cx="85" cy="105" r="6" fill="#333"/>
                   <path d="M 85 111 L 95 120"
                         stroke="#333"
-                        stroke-width="8"
-                        stroke-linecap="round"/>
+                        strokeWidth="8"
+                        strokeLinecap="round"/>
                   <circle cx="115" cy="105" r="6" fill="#333"/>
                   <path d="M 115 111 L 105 120"
                         stroke="#333"
-                        stroke-width="8"
-                        stroke-linecap="round"/>
+                        strokeWidth="8"
+                        strokeLinecap="round"/>
                   <path d="M 95 120 L 105 120"
                         stroke="#333"
-                        stroke-width="10"
-                        stroke-linecap="round"/>
+                        strokeWidth="10"
+                        strokeLinecap="round"/>
                   <circle cx="100" cy="55" r="3" fill="#fff"/>
                 </svg>
               </div>
@@ -181,9 +222,7 @@ function Home() {
 
         {/* ===== PROJECTS SECTION ===== */}
         {userData?.projects && userData.projects.length > 0 && (
-          <section id="projects">
             <Projects projecttype={userData.projects} />
-          </section>
         )}
 
         {/* ===== SKILLS SECTION ===== */}
@@ -210,3 +249,6 @@ function Home() {
 }
 
 export default Home
+
+
+ 

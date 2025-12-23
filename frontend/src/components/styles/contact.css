@@ -1,5 +1,11 @@
 .contact-section {
   padding: 1.5rem 0;
+  background: linear-gradient(
+    to bottom,
+    #ffffff 0%,
+    #dfe2e6 50%,
+    #ffffff 100%
+  );
 }
 
 .contact-subtitle {
@@ -29,7 +35,7 @@
 }
 
 .form-input {
-  width: 100%;
+  width: 90%;
   padding: 0.875rem 1rem;
   border: 2px solid #e0e0e0;
   border-radius: 12px;

@@ -25,10 +25,10 @@ function Skills({ skills }: SkillsProps) {
   return (
     <section className="skills-section">
       <h2 className="section-title">Skills & Technologies</h2>
-      <SkillSection title="Programming Skills" skills={groupedSkills.programming} />
-      <SkillSection title="Data Engineering & Visualization" skills={groupedSkills.data} />
-      <SkillSection title="SDLC, Cloud and DevOps" skills={groupedSkills.sdlc} />
-      <SkillSection title="AI, ML and NLP" skills={groupedSkills.ai} />
+      <SkillSection title="PROGRAMMING" skills={groupedSkills.programming} />
+      <SkillSection title="DATA SCIENCE" skills={groupedSkills.data} />
+      <SkillSection title="SDLC CLOUD DEVOPS" skills={groupedSkills.sdlc} />
+      <SkillSection title="AI ML NLP" skills={groupedSkills.ai} />
     </section>
   )
 }

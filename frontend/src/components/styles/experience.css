@@ -1,6 +1,11 @@
 .experience-section {
   padding: 1.5rem 0;
-  background: transparent;
+  background: linear-gradient(
+    to bottom,
+    #f6f7f9 0%,
+    #cfd4da 50%,
+    #f6f7f9 100%
+  );
 }
 
 .experience-list {
