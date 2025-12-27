@@ -33,8 +33,8 @@ function Contact() {
     setLoading(true)
 
     try {
-      await axios.post(`${BASE_URL}/contact/`, formData)
-      toast.success("Message sent successfully! 🎉")
+      await axios.post(`${BASE_URL}/me/contact/`, formData)
+      toast.success("Message sent successfully!")
       setFormData({ name: "", email: "", message: "" })
     } catch (err) {
       toast.error("Failed to send message. Please try again.")

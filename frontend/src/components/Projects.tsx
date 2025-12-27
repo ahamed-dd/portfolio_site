@@ -54,7 +54,7 @@ function Projects({ projecttype }: props) {
   const nextProjectData = projecttype[getNextIndex()]
 
   return (
-    <section className="projects-section">
+    <section id= 'projects' className="projects-section">
       <h2 className="section-title">Featured Projects</h2>
       
       <div className="projects-carousel-container">

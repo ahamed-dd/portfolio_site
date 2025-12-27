@@ -5,6 +5,7 @@ from rest_framework.decorators import api_view
 from rest_framework import status
 from rest_framework.response import Response
 from django.core.mail import send_mail
+import os
 # Create your views here.
 
 @api_view(['GET'])
@@ -31,7 +32,7 @@ def contact(request):
             send_mail(
                 'New Contact Form Submission',
                 f"Name: {name}\nEmail: {email}\nMessage: {message}",
-                f'{email}',
+                os.environ.get('EMAIL_HOST_USER'),
                 ['ahmedmb123@gmail.com'],
                 fail_silently=False,
             )
