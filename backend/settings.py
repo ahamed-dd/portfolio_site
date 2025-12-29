@@ -117,6 +117,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / "staticfiles" # Add this line only if you serve django static files(admin, html, css) and run python manage.py collectstatic
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8000",
