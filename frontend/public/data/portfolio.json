@@ -1,0 +1,180 @@
+{
+  "profile": {
+    "name": "Ahamed Basheer",
+    "email": "ahmedmb123@gmail.com",
+    "bio": "**B.Tech graduate in Artificial Intelligence and Data Science** and a **full-stack developer** specializing in **Django REST Framework** and **React (TypeScript)**.\n\nI build **clean, scalable, production-ready web applications**, handling everything from **backend APIs** and **frontend workflows** to **Docker, CI/CD pipelines, Nginx, and AWS deployments**.\n\nI prefer **end-to-end ownership**, with a strong focus on **reliability, performance, and scalability**.\n\n**Open to freelance work and full-time opportunities** — feel free to reach out.",
+    "about": "",
+    "extra_info": "Python Full-Stack Developer",
+    "resume_url": "https://drive.google.com/file/d/1fhoA3ibHitrGjXXclUW63K34TAv4ikcS/view?usp=sharing",
+    "socials": [
+      {
+        "name": "LinkedIn",
+        "url": "https://www.linkedin.com/in/ahamed-dd",
+        "icon_url": "/media/general/linkedin.png"
+      },
+      {
+        "name": "GitHub",
+        "url": "https://github.com/ahamed-dd",
+        "icon_url": "/media/general/github.svg"
+      }
+    ]
+  },
+
+  "projects": [
+    {
+      "title": "Task Manager System",
+      "description": "A To-Do Application with everything you need.",
+      "github_url": "https://github.com/ahamed-dd/Task-Manager-System",
+      "live_url": "https://task-manager-system-1-7ceq.onrender.com/",
+      "tech_stack": "Django · Django REST Framework · RESTful API Design · SimpleJWT (Cookie-based Auth) · React · Axios · Docker · Docker Compose · NGINX · PostgreSQL · Git · GitHub Actions (CI) · AWS EC2 · Render · SSH · Jira",
+      "proj_image_url": "/media/projects/task_manager.png"
+    },
+    {
+      "title": "Portfolio Site",
+      "description": "A fully Customizable Portfolio Site.",
+      "github_url": "https://github.com/ahamed-dd/portfolio_site",
+      "live_url": "",
+      "tech_stack": "Django · Django REST Framework · RESTful API Design · React (TypeScript) · Axios · Docker · Docker Compose · NGINX · PostgreSQL · Git · GitHub Actions (CI) · AWS EC2 · Render · SSH · Jira",
+      "proj_image_url": "/media/projects/portfolio_site.png"
+    },
+    {
+      "title": "Sales & Profit Dashboard",
+      "description": "Dashboard for a Flour Business in UAE, Daily Sales data converted into Interactive dashboard for monitoring sales and profit.",
+      "github_url": "https://github.com/ahamed-dd/sales-profit-dashboard-powerbi",
+      "live_url": "https://drive.google.com/file/d/1MU9zZ33-AYjMU3X9nASV0PDb4kZ9VFVi/view",
+      "tech_stack": "PowerBI · Excel · PowerQuery Editor · Pandas",
+      "proj_image_url": "/media/projects/powerbi.png"
+    }
+  ],
+
+  "experience": [
+    {
+      "company_name": "Retech Solutions",
+      "role": "Python Developer",
+      "description": "Contributed Python features, developed APIs, tested and worked in Agile environment."
+    },
+    {
+      "company_name": "Popular Flour Mill, Freelance",
+      "role": "Data Analyst",
+      "description": "Built a real-time sales dashboard, automated ETL, visualized KPIs, and cut manual reporting time."
+    },
+    {
+      "company_name": "LinkedIn, Medium",
+      "role": "Technical Writer",
+      "description": "Authored technical blogs on AI/ML concepts with practical coding examples."
+    }
+  ],
+
+  "skills": [
+    {
+      "name": "Python",
+      "image_url": "/media/programming/python.png",
+      "category": "Programming"
+    },
+    {
+      "name": "Django",
+      "image_url": "/media/programming/django.svg",
+      "category": "Programming"
+    },
+    {
+      "name": "SQL",
+      "image_url": "/media/programming/sql.png",
+      "category": "Programming"
+    },
+    {
+      "name": "React",
+      "image_url": "/media/programming/react-.png",
+      "category": "Programming"
+    },
+    {
+      "name": "TypeScript",
+      "image_url": "/media/programming/typescript.png",
+      "category": "Programming"
+    },
+    {
+      "name": "HTML",
+      "image_url": "/media/programming/html.png",
+      "category": "Programming"
+    },
+    {
+      "name": "CSS",
+      "image_url": "/media/programming/css.png",
+      "category": "Programming"
+    },
+    {
+      "name": "PowerBI",
+      "image_url": "/media/data/powerbi.svg",
+      "category": "Data Engineering and Visualization"
+    },
+    {
+      "name": "Pandas",
+      "image_url": "/media/data/pandas.png",
+      "category": "Data Engineering and Visualization"
+    },
+    {
+      "name": "Numpy",
+      "image_url": "/media/data/numpy.png",
+      "category": "Data Engineering and Visualization"
+    },
+    {
+      "name": "Matplotlib",
+      "image_url": "/media/data/matplotlib.png",
+      "category": "Data Engineering and Visualization"
+    },
+    {
+      "name": "Git",
+      "image_url": "/media/sdlc/git.png",
+      "category": "SDLC, Cloud and Devops"
+    },
+    {
+      "name": "GitHub",
+      "image_url": "/media/sdlc/github.png",
+      "category": "SDLC, Cloud and Devops"
+    },
+    {
+      "name": "Docker",
+      "image_url": "/media/sdlc/docker.svg",
+      "category": "SDLC, Cloud and Devops"
+    },
+    {
+      "name": "Nginx",
+      "image_url": "/media/sdlc/nginx.svg",
+      "category": "SDLC, Cloud and Devops"
+    },
+    {
+      "name": "Jira",
+      "image_url": "/media/sdlc/jira.svg",
+      "category": "SDLC, Cloud and Devops"
+    },
+    {
+      "name": "AWS",
+      "image_url": "/media/sdlc/aws.svg",
+      "category": "SDLC, Cloud and Devops"
+    },
+    {
+      "name": "Scikitlearn",
+      "image_url": "/media/ai/scikit.png",
+      "category": "AI, ML and NLP"
+    },
+    {
+      "name": "Pytorch",
+      "image_url": "/media/ai/pytorch.png",
+      "category": "AI, ML and NLP"
+    },
+    {
+      "name": "HuggingFace",
+      "image_url": "/media/ai/huggingface.svg",
+      "category": "AI, ML and NLP"
+    },
+    {
+      "name": "NLTK",
+      "image_url": "/media/ai/NLTK.png",
+      "category": "AI, ML and NLP"
+    },
+    {
+      "name": "Spacy",
+      "image_url": "/media/ai/spacy.svg",
+      "category": "AI, ML and NLP"
+    }
+  ]
+}

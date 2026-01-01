@@ -47,7 +47,6 @@ const BASE_URL = import.meta.env.VITE_BASE_URL
 function Home() {
   const [userData, setUserData] = useState<UserData | null>(null)
   const [loading, setLoading] = useState(true)
-  const [showResume, setShowResume] = useState(false)
 
   async function getUserData(): Promise<UserData | null> {
     try {
