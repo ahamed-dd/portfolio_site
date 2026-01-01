@@ -2,7 +2,6 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 import Typewriter from 'typewriter-effect'
 import { toast, ToastContainer } from "react-toastify"
-import { Modal } from "react-bootstrap"
 import Navbar from "./Navbar"
 import Skills from "./Skills"
 import type { SkillType } from "./Skills"
@@ -35,6 +34,7 @@ type UserData = {
     bio?: string
     about?: string
     profile_image?: string
+    resume_url?: string
     projects?: ProjectType[]
     education?: EducationType[]
     experience?: ExperienceType[]
@@ -43,25 +43,6 @@ type UserData = {
     socials?: SocialMediaType[]
 }
 const BASE_URL = import.meta.env.VITE_BASE_URL
-// ===== RESUME MODAL COMPONENT =====
-function ResumeModal({ show, onHide }: { show: boolean; onHide: () => void }) {
-  return (
-    <Modal show={show} onHide={onHide} size="lg" centered className="resume-modal">
-      <Modal.Header closeButton>
-        <Modal.Title>Resume</Modal.Title>
-      </Modal.Header>
-      <Modal.Body style={{ padding: 0 }}>
-        <iframe
-          src="https://drive.google.com/file/d/1JNhoViPEGQuhDiHAcBDnd1yPodSmeIWA/preview"
-          width="100%"
-          height="600px"
-          style={{ border: 'none' }}
-          title="Resume"
-        />
-      </Modal.Body>
-    </Modal>
-  )
-}
 
 function Home() {
   const [userData, setUserData] = useState<UserData | null>(null)
@@ -151,12 +132,15 @@ function Home() {
                 </div>
               )}
               <div className="hero-buttons">
-                        <button 
+                        <a
+                          href={userData?.resume_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="hero-btn hero-btn-primary"
-                          onClick={() => setShowResume(true)}
                         >
                           Resume
-                        </button>
+                        </a>
+
                         <button
                           className="hero-btn hero-btn-secondary"
                           onClick={() => scrollToSection("contact")}
@@ -239,9 +223,7 @@ function Home() {
 
         {/* ===== CONTACT SECTION ===== */}
         <Contact />
-
-        {/* ===== RESUME MODAL ===== */}
-        <ResumeModal show={showResume} onHide={() => setShowResume(false)} />
+      
       </div>
       <ToastContainer position="bottom-right" />
     </>
