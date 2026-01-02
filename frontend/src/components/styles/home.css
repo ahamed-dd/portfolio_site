@@ -241,7 +241,12 @@ body {
 
   .hero-title {
     font-size: 1.75rem;
-    min-height: 70px;
+    line-height: 1.2;
+  }
+
+  .hero-titletwo {
+    line-height: 1.2;
+    margin-top: -0.25rem;
   }
 
   .section-title {
@@ -326,4 +331,9 @@ body {
   .hero-left-header {
     gap: 1rem;
   }
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
 }
