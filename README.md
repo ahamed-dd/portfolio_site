@@ -93,9 +93,9 @@ public/data/portfolio.json
 - Increases failure points
 
 ### Customization Guide
-1.Fork the repository
-2.Edit public/data/portfolio.json
-3.Replace assets in public/media/
-4.Deploy to Vercel
+1. Fork the repository
+2. Edit public/data/portfolio.json
+3. Replace assets in public/media/
+4. Deploy to Vercel
 
 
