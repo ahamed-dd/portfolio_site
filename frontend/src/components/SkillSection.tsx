@@ -13,7 +13,7 @@ function SkillSection({ title, skills }: SkillSectionProps) {
       <h3 className="skill-section-title">{title}</h3>
       <div className="skills-grid">
         {skills.map(skill => (
-          <div className="skill-card" key={skill.id}>
+          <div className="skill-card" key={skill.name}>
             <div className="skill-icon">
               <img src={skill.image_url} alt={skill.name} />
             </div>

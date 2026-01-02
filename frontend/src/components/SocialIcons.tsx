@@ -16,7 +16,7 @@ export function SocialMedia({socials}: SocialProp) {
     <div className="social-icons">
       {socials.map(social => (
         <a 
-          key={social.id}
+          key={social.url}
           href={social.url}
           target="_blank"
           rel="noopener noreferrer"

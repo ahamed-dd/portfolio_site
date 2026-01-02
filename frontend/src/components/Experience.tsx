@@ -4,6 +4,8 @@ export type ExperienceType = {
   company_name: string
   role: string
   description: string
+  year_worked?: string
+  located?: string
 }
 
 
