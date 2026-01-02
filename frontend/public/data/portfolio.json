@@ -33,7 +33,7 @@
       "title": "Portfolio Site",
       "description": "A fully Customizable Portfolio Site.",
       "github_url": "https://github.com/ahamed-dd/portfolio_site",
-      "live_url": "",
+      "live_url": "https://ahamed-beige.vercel.app/",
       "tech_stack": "Django · Django REST Framework · RESTful API Design · React (TypeScript) · Axios · Docker · Docker Compose · NGINX · PostgreSQL · Git · GitHub Actions (CI) · AWS EC2 · Render · SSH · Jira",
       "proj_image_url": "/media/projects/portfolio_site.png"
     },
