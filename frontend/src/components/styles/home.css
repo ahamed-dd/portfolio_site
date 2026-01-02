@@ -281,6 +281,13 @@ body {
   border: none;
 }
 
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 .hero-btn-primary {
   background: #00d9c0;
   color: white;
@@ -312,10 +319,12 @@ body {
   .hero-buttons {
     flex-direction: column;
     width: 100%;
+    max-width: 100%;
   }
 
   .hero-btn {
     width: 100%;
+    max-width: 100%;
   }
 }
 

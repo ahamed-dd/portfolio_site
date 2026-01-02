@@ -292,6 +292,21 @@
   .carousel-controls {
     gap: 1.25rem;
   }
+
+  .projects-section {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .project-links {
+    width: 100%;
+  }
+
+  .project-btn {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
 }
 
 /* Project Images */
