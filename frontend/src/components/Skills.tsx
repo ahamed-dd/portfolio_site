@@ -4,11 +4,11 @@ import './styles/skills.css'
 export type SkillCategory = "Programming" | "Data Engineering and Visualization" | "AI, ML and NLP" | "SDLC, Cloud and Devops"
 
 export type SkillType = {
-  id: number
   name: string
   image_url: string
-  category: SkillCategory
+  category: string
 }
+
 
 type SkillsProps = {
   skills: SkillType[]

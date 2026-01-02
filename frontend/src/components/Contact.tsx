@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { toast } from "react-toastify"
-import axios from "axios"
-import './styles/contact.css'
+import emailjs from "@emailjs/browser"
+import "./styles/contact.css"
 
 export type ContactType = {
   name: string
@@ -9,7 +9,9 @@ export type ContactType = {
   message: string
 }
 
-const BASE_URL = import.meta.env.VITE_BASE_URL
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
 function Contact() {
   const [formData, setFormData] = useState<ContactType>({
@@ -33,10 +35,20 @@ function Contact() {
     setLoading(true)
 
     try {
-      await axios.post(`${BASE_URL}/me/contact/`, formData)
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        PUBLIC_KEY
+      )
+
       toast.success("Message sent successfully!")
       setFormData({ name: "", email: "", message: "" })
-    } catch (err) {
+    } catch (error) {
       toast.error("Failed to send message. Please try again.")
     } finally {
       setLoading(false)
@@ -49,6 +61,7 @@ function Contact() {
       <p className="contact-subtitle">
         Have a question or want to work together? Drop me a message!
       </p>
+
       <div className="contact-container">
         <form onSubmit={handleSubmit} className="contact-form">
           <div className="form-group">
@@ -62,6 +75,7 @@ function Contact() {
               className="form-input"
             />
           </div>
+
           <div className="form-group">
             <input
               type="email"
@@ -73,6 +87,7 @@ function Contact() {
               className="form-input"
             />
           </div>
+
           <div className="form-group">
             <textarea
               rows={5}
@@ -84,8 +99,9 @@ function Contact() {
               className="form-input form-textarea"
             />
           </div>
-          <button 
-            type="submit" 
+
+          <button
+            type="submit"
             className="submit-btn"
             disabled={loading}
           >

@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react"
-import axios from "axios"
-import Typewriter from 'typewriter-effect'
+import Typewriter from "typewriter-effect"
 import { toast, ToastContainer } from "react-toastify"
 import Navbar from "./Navbar"
 import Skills from "./Skills"
@@ -12,37 +11,26 @@ import type { ExperienceType } from "./Experience"
 import Contact from "./Contact"
 import { SocialMedia } from "./SocialIcons"
 import { type SocialMediaType } from "./SocialIcons"
-import 'react-toastify/dist/ReactToastify.css'
-import './styles/home.css'
-import ReactMardown from 'react-markdown'
+import "react-toastify/dist/ReactToastify.css"
+import "./styles/home.css"
+import ReactMarkdown from 'react-markdown'
 
-export type EducationType = {
-  institute_name: string
-  degree?: string
-  field?: string
-  year_started?:number
-  year_ended?: number
-  grade?: number
-  located?: string
+export type ProfileType = {
+  name: string
+  email?: string
+  bio: string
+  about?: string
+  extra_info?: string
+  resume_url?: string
+  socials: SocialMediaType[]
 }
 
-type UserData = {
-    name: string
-    linkedin?: string
-    github?: string 
-    medium?: string
-    bio?: string
-    about?: string
-    profile_image?: string
-    resume_url?: string
-    projects?: ProjectType[]
-    education?: EducationType[]
-    experience?: ExperienceType[]
-    skills?: SkillType[]
-    extra_info?: string
-    socials?: SocialMediaType[]
+export type UserData = {
+  profile: ProfileType
+  projects: ProjectType[]
+  experience: ExperienceType[]
+  skills: SkillType[]
 }
-const BASE_URL = import.meta.env.VITE_BASE_URL
 
 function Home() {
   const [userData, setUserData] = useState<UserData | null>(null)
@@ -50,29 +38,38 @@ function Home() {
 
   async function getUserData(): Promise<UserData | null> {
     try {
-      const response = await axios.get(`${BASE_URL}/me/`)
-      return response.data
-    } catch (error) {
-      toast.error("Failed to load user data")
+      const res = await fetch("/data/portfolio.json")
+      if (!res.ok) throw new Error("Failed to load portfolio data")
+      return await res.json()
+    } catch {
+      toast.error("Failed to load portfolio data")
       return null
     }
   }
 
   const scrollToSection = (sectionId: string) => {
-  const section = document.getElementById(sectionId)
-  if (section) {
-    section.scrollIntoView({ behavior: "smooth" })
-  }
+    const section = document.getElementById(sectionId)
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" })
+    }
   }
 
   useEffect(() => {
+    let mounted = true
+
     const loadData = async () => {
       setLoading(true)
-      const [user] = await Promise.all([getUserData()])
-      setUserData(user)
-      setLoading(false)
+      const user = await getUserData()
+      if (mounted && user) {
+        setUserData(user)
+        setLoading(false)
+      }
     }
+
     loadData()
+    return () => {
+      mounted = false
+    }
   }, [])
 
   if (loading) {
@@ -83,6 +80,11 @@ function Home() {
     )
   }
 
+  if (!userData) {
+  return null
+}
+
+
   return (
     <>
       <Navbar />
@@ -91,71 +93,65 @@ function Home() {
         <section className="hero-section" id="home">
           <div className="hero-content">
             <div className="hero-left">
-              <div className="hero-left-header">
-              {userData?.profile_image && (
-                <div className="profile-image">
-                  <img src={userData.profile_image} alt="Profile" />
-                </div>
-              )}
-
-            </div>
-                <h1 className="hero-title">
-                  Hello, I'm{" "}
-                  <span className="hero-name">
-                    <Typewriter
-                      options={{
-                        strings: userData?.name || "Ahamed",
-                        autoStart: true,
-                        delay: 40,
-                        cursor: " "
-                      }}
-                    />
-                  </span>
-                </h1>
-
-                <h2 className="hero-titletwo">
+              <h1 className="hero-title">
+                Hello, I'm{" "}
+                <span className="hero-name">
                   <Typewriter
                     options={{
-                      strings: userData?.extra_info || "Full-stack developer",
+                      strings: userData?.profile.name || "Ahamed",
                       autoStart: true,
-                      delay: 50,
+                      delay: 40,
+                      cursor: " "
                     }}
                   />
-                </h2>
+                </span>
+              </h1>
 
-              {userData?.bio && (
+              <h2 className="hero-titletwo">
+                <Typewriter
+                  options={{
+                    strings: userData?.profile.extra_info || "Full-stack developer",
+                    autoStart: true,
+                    delay: 50
+                  }}
+                />
+              </h2>
+
+              {userData?.profile.bio && (
                 <div className="hero-description">
-                <ReactMardown >
-                  {userData.bio}
-                </ReactMardown>
+                 <ReactMarkdown>
+                  {userData.profile.bio}
+                </ReactMarkdown>
+                  
                 </div>
               )}
-              <div className="hero-buttons">
-                        <a
-                          href={userData?.resume_url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="hero-btn hero-btn-primary"
-                        >
-                          Resume
-                        </a>
 
-                        <button
-                          className="hero-btn hero-btn-secondary"
-                          onClick={() => scrollToSection("contact")}
-                        >
-                          Contact Me
-                        </button>
+              <div className="hero-buttons">
+                <a
+                  href={userData?.profile.resume_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hero-btn hero-btn-primary"
+                >
+                  Resume
+                </a>
+
+                <button
+                  className="hero-btn hero-btn-secondary"
+                  onClick={() => scrollToSection("contact")}
+                >
+                  Contact Me
+                </button>
               </div>
-              {userData?.socials && userData.socials.length > 0 &&(
-                <SocialMedia socials={userData.socials}/>
+
+              {userData?.profile.socials.length > 0 && (
+                <SocialMedia socials={userData.profile.socials} />
               )}
-              
-              
-          </div>
+            </div>
+
             <div className="hero-right">
               <div className="hero-image">
-                {/* Placeholder illustration - you can replace with an actual image */}
+                {/* SVG unchanged */}
                 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                   <defs>
                     <pattern id="grid" width="4" height="4" patternUnits="userSpaceOnUse">
@@ -192,44 +188,34 @@ function Home() {
           </div>
         </section>
 
-        {/* ===== ABOUT ME SECTION ===== 
-        <section className="about-section" id="about">
-          <h2 className="section-title">About Me</h2>
-          <div className="about-content">
-            {userData?.extra_info && (
-              <p className="about-text">{userData.extra_info}</p>
-            )}
-          </div>
-        </section> -- About Section is commented As I think it is not useful as
-        bio and about are mostly similar. */}
-
-        {/* ===== PROJECTS SECTION ===== */}
-        {userData?.projects && userData.projects.length > 0 && (
-            <Projects projecttype={userData.projects} />
+        {/* ===== PROJECTS ===== */}
+        {userData?.projects.length > 0 && (
+          <Projects projecttype={userData.projects} />
         )}
 
-        {/* ===== SKILLS SECTION ===== */}
-        {userData?.skills && userData.skills.length > 0 && (
+        {/* ===== SKILLS ===== */}
+        {userData?.skills.length > 0 && (
           <Skills skills={userData.skills} />
         )}
 
-        {/* ===== EXPERIENCE SECTION ===== */}
-        {userData?.experience && userData.experience.length > 0 && (
+        {/* ===== EXPERIENCE ===== */}
+        {userData?.experience.length > 0 && (
           <section id="experience">
             <Experience exp={userData.experience} />
           </section>
         )}
 
-        {/* ===== CONTACT SECTION ===== */}
+        {/* ===== CONTACT ===== */}
         <Contact />
-      
       </div>
+
       <ToastContainer position="bottom-right" />
     </>
   )
 }
 
 export default Home
+
 
 
  

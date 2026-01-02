@@ -3,10 +3,9 @@ import './styles/experience.css'
 export type ExperienceType = {
   company_name: string
   role: string
-  description?: string
-  year_worked?: number
-  located?: string
+  description: string
 }
+
 
 type ExpProps = {
   exp: ExperienceType[]

@@ -2,15 +2,14 @@ import { useState } from 'react'
 import './styles/projects.css'
 
 export type ProjectType = {
-  id: number
   title: string
-  description?: string
-  github_url?: string 
-  live_url?: string 
-  tech_stack?: string
-  proj_image_url?: string
-  order?: number
+  description: string
+  github_url: string
+  live_url?: string
+  tech_stack: string
+  proj_image_url: string
 }
+
 
 type props = {
   projecttype: ProjectType[]

@@ -1,11 +1,11 @@
 
 
 export type SocialMediaType = {
-  id: number
   name: string
   url: string
   icon_url: string
 }
+
 
 type SocialProp = {
     socials: SocialMediaType[]
