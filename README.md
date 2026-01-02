@@ -9,12 +9,14 @@ This portfolio was originally built as a **fully modular, backend-driven applica
 
 For deployment and long-term reliability, the project was later converted into a **frontend-only version** using static JSON data, while preserving the same modular architecture.
 
+ ![Screenshot](/frontend/public/media/projects/portfolio_site.png)
+
 This approach ensures:
 - Zero backend downtime
 - Faster load times
 - Free and stable hosting
 - Clean separation between content and UI
-  ![Screenshot](/frontend/public/media/projects/portfolio_site.png)
+ 
 
 ---
 
