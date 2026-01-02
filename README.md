@@ -14,6 +14,7 @@ This approach ensures:
 - Faster load times
 - Free and stable hosting
 - Clean separation between content and UI
+  ![Screenshot](/frontend/public/media/projects/portfolio.png)
 
 ---
 
