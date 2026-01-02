@@ -316,8 +316,11 @@ body {
 
 /* Responsive for buttons */
 @media (max-width: 480px) {
+  .hero-left {
+    width: 100%;
+  }
+
   .hero-buttons {
-    flex-direction: column;
     width: 100%;
     max-width: 100%;
   }
@@ -325,7 +328,9 @@ body {
   .hero-btn {
     width: 100%;
     max-width: 100%;
+    box-sizing: border-box;
   }
+
 }
 
 @media (max-width: 480px) {
