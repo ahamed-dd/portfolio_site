@@ -9,6 +9,8 @@ This portfolio was originally built as a **fully modular, backend-driven applica
 
 For deployment and long-term reliability, the project was later converted into a **frontend-only version** using static JSON data, while preserving the same modular architecture.
 
+🔗 Live Demo: [https://ahamed-beige.vercel.app/]
+
  ![Screenshot](/frontend/public/media/projects/portfolio_site.png)
 
 This approach ensures:
