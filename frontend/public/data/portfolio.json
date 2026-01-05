@@ -44,6 +44,14 @@
       "live_url": "https://drive.google.com/file/d/1MU9zZ33-AYjMU3X9nASV0PDb4kZ9VFVi/view",
       "tech_stack": "PowerBI · Excel · PowerQuery Editor · Pandas",
       "proj_image_url": "/media/projects/powerbi.png"
+    },
+    {
+      "title": "Bookly: Personal Books Manager",
+      "description": "Books managing application: You can keep track of your books(completed, wish to read books, Favourites) all in one place.",
+      "github_url": "https://github.com/ahamed-dd/bookly-bookManager",
+      "live_url": "https://bookly-eux2.onrender.com/",
+      "tech_stack": "Django · Django REST Framework · RESTful API Design · React · Typescript · Axios · Docker · Docker Compose · NGINX · PostgreSQL · Git · GitHub Actions (CI) · AWS EC2 · Render · SSH · Jira",
+      "proj_image_url": "/media/projects/bookly.png"
     }
   ],
 
